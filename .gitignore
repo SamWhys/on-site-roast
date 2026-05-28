@@ -1,0 +1,6 @@
+.DS_Store
+html files/
+node_modules/
+.dev.vars
+.wrangler/
+.vscode/

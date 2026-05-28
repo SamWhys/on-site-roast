@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>On Site Roast — Get your website roasted by a senior UX pro</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  :root {
+    --coral: #FF6B6B;
+    --peach: #FFB088;
+    --sunshine: #FFD93D;
+    --mint: #6BCB77;
+    --sky: #4D96FF;
+    --lavender: #B983FF;
+    --cream: #FFF8F0;
+    --ink: #2D1B3D;
+    --ink-soft: #5A4A6B;
+    --white: #FFFFFF;
+  }
+  
+  html { scroll-behavior: smooth; }
+  
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:wght@600;700;900&display=swap');
+  
+  /* ===== NAVIGATION ===== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.25rem 2rem;
+    background: rgba(255, 248, 240, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(45, 27, 61, 0.06);
+  }
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .logo-emoji { font-size: 1.6rem; }
+  .nav-cta {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 0.6rem 1.25rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+  .nav-cta:hover { transform: translateY(-2px); background: var(--coral); }
+  
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    padding: 8rem 2rem 4rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+  }
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.5;
+    animation: float 20s ease-in-out infinite;
+  }
+  .blob-1 { width: 500px; height: 500px; background: var(--coral); top: -100px; right: -100px; }
+  .blob-2 { width: 400px; height: 400px; background: var(--sunshine); bottom: -50px; left: -50px; animation-delay: -5s; }
+  .blob-3 { width: 350px; height: 350px; background: var(--lavender); top: 30%; left: 40%; animation-delay: -10s; opacity: 0.3; }
+  
+  @keyframes float {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -30px) scale(1.05); }
+    66% { transform: translate(-20px, 20px) scale(0.95); }
+  }
+  
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 20px rgba(45, 27, 61, 0.08);
+    animation: slideUp 0.6s ease;
+  }
+  .hero-badge .dot {
+    width: 8px; height: 8px;
+    background: var(--mint);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.3); }
+  }
+  
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+    animation: slideUp 0.8s ease;
+  }
+  h1 .accent {
+    display: inline-block;
+    background: linear-gradient(120deg, var(--coral), var(--peach));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    position: relative;
+  }
+  h1 .underline {
+    position: relative;
+    display: inline-block;
+  }
+  h1 .underline::after {
+    content: '';
+    position: absolute;
+    bottom: 0.05em;
+    left: -0.05em;
+    right: -0.05em;
+    height: 0.25em;
+    background: var(--sunshine);
+    z-index: -1;
+    border-radius: 4px;
+  }
+  
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .hero-sub {
+    font-size: 1.2rem;
+    color: var(--ink-soft);
+    margin-bottom: 2rem;
+    max-width: 540px;
+    animation: slideUp 1s ease;
+  }
+  
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+    animation: slideUp 1.2s ease;
+  }
+  .btn-primary {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 1rem 1.75rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(45, 27, 61, 0.25);
+  }
+  .btn-primary i { transition: transform 0.2s ease; }
+  .btn-primary:hover i { transform: translateX(4px); }
+  
+  .price-note {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+  .price-note .coffee {
+    font-size: 1.3rem;
+    animation: wiggle 3s ease-in-out infinite;
+  }
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-8deg); }
+    75% { transform: rotate(8deg); }
+  }
+  
+  /* ===== HERO VISUAL ===== */
+  .hero-visual {
+    position: relative;
+    animation: slideUp 1.4s ease;
+  }
+  .roast-card {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 1.75rem;
+    box-shadow: 0 20px 60px rgba(45, 27, 61, 0.15);
+    transform: rotate(-3deg);
+    transition: transform 0.4s ease;
+  }
+  .roast-card:hover { transform: rotate(0deg) scale(1.02); }
+  
+  .roast-card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px dashed rgba(45, 27, 61, 0.1);
+  }
+  .roast-avatar {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--coral), var(--lavender));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+  .roast-meta { flex: 1; }
+  .roast-meta .name { font-weight: 700; font-size: 0.95rem; }
+  .roast-meta .role { font-size: 0.8rem; color: var(--ink-soft); }
+  .roast-stars { color: var(--sunshine); font-size: 0.85rem; }
+  
+  .roast-finding {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    background: var(--cream);
+    border-radius: 12px;
+    align-items: flex-start;
+  }
+  .roast-finding:last-child { margin-bottom: 0; }
+  .roast-finding-icon {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 0.9rem;
+  }
+  .icon-red { background: rgba(255, 107, 107, 0.15); color: var(--coral); }
+  .icon-yellow { background: rgba(255, 217, 61, 0.2); color: #C99A00; }
+  .icon-green { background: rgba(107, 203, 119, 0.15); color: var(--mint); }
+  .roast-finding-text { font-size: 0.85rem; line-height: 1.4; }
+  .roast-finding-text strong { display: block; margin-bottom: 0.15rem; color: var(--ink); }
+  .roast-finding-text span { color: var(--ink-soft); }
+  
+  .sticker {
+    position: absolute;
+    background: var(--sunshine);
+    color: var(--ink);
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    transform: rotate(8deg);
+    box-shadow: 0 8px 20px rgba(45, 27, 61, 0.15);
+    font-size: 0.85rem;
+    line-height: 1.2;
+    text-align: center;
+  }
+  .sticker-1 { top: -20px; right: -10px; }
+  .sticker-2 {
+    bottom: -15px; left: -20px;
+    background: var(--mint);
+    color: white;
+    transform: rotate(-6deg);
+  }
+  
+  /* ===== SECTIONS ===== */
+  section { padding: 6rem 2rem; position: relative; }
+  .container { max-width: 1200px; margin: 0 auto; }
+  
+  .section-tag {
+    display: inline-block;
+    background: var(--white);
+    color: var(--ink-soft);
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(45, 27, 61, 0.08);
+  }
+  
+  h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+  }
+  
+  .section-sub {
+    font-size: 1.15rem;
+    color: var(--ink-soft);
+    max-width: 600px;
+    margin-bottom: 3.5rem;
+  }
+  
+  /* ===== DELIVERABLES ===== */
+  .deliverables {
+    background: var(--white);
+  }
+  
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .card {
+    background: var(--cream);
+    border-radius: 20px;
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+  }
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(45, 27, 61, 0.1);
+    border-color: rgba(255, 107, 107, 0.2);
+  }
+  .card-icon {
+    width: 56px; height: 56px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+    color: white;
+  }
+  .icon-bg-1 { background: linear-gradient(135deg, var(--coral), #FF8A8A); }
+  .icon-bg-2 { background: linear-gradient(135deg, var(--sky), #7BB5FF); }
+  .icon-bg-3 { background: linear-gradient(135deg, var(--mint), #8DD89A); }
+  .icon-bg-4 { background: linear-gradient(135deg, var(--lavender), #D0A8FF); }
+  .icon-bg-5 { background: linear-gradient(135deg, #FFA94D, var(--peach)); }
+  
+  .card h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 1.35rem;
+    margin-bottom: 0.5rem;
+  }
+  .card p { color: var(--ink-soft); font-size: 0.95rem; }
+  
+  /* ===== SAMPLE ROAST ===== */
+  .sample-roast {
+    background: linear-gradient(180deg, var(--cream) 0%, #FFE8D9 100%);
+  }
+  
+  .sample-container {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 2.5rem;
+    box-shadow: 0 20px 60px rgba(45, 27, 61, 0.08);
+    margin-top: 2rem;
+  }
+  
+  .sample-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px dashed rgba(45, 27, 61, 0.1);
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .sample-site {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .sample-site-icon {
+    width: 48px; height: 48px;
+    background: linear-gradient(135deg, var(--lavender), var(--sky));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.3rem;
+  }
+  .sample-site h4 { font-family: 'Fraunces', serif; font-size: 1.2rem; }
+  .sample-site p { font-size: 0.85rem; color: var(--ink-soft); }
+  
+  .sample-score {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--cream);
+    padding: 0.6rem 1.25rem;
+    border-radius: 999px;
+  }
+  .score-number {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: var(--coral);
+  }
+  .score-label { font-size: 0.85rem; color: var(--ink-soft); }
+  
+  .findings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+  
+  .finding {
+    background: var(--cream);
+    border-radius: 14px;
+    padding: 1.25rem;
+    border-left: 4px solid;
+  }
+  .finding.severity-high { border-color: var(--coral); }
+  .finding.severity-med { border-color: var(--sunshine); }
+  .finding.severity-low { border-color: var(--mint); }
+  
+  .finding-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+  }
+  .tag-high { background: rgba(255, 107, 107, 0.15); color: var(--coral); }
+  .tag-med { background: rgba(255, 217, 61, 0.25); color: #B58800; }
+  .tag-low { background: rgba(107, 203, 119, 0.15); color: var(--mint); }
+  
+  .finding h5 {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 0.35rem;
+  }
+  .finding p { font-size: 0.88rem; color: var(--ink-soft); line-height: 1.5; }
+  .finding .principle {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+  
+  /* ===== HOW IT WORKS ===== */
+  .how-it-works {
+    background: var(--white);
+  }
+  
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+    position: relative;
+  }
+  
+  .step {
+    text-align: center;
+    position: relative;
+  }
+  .step-num {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 1.25rem;
+    background: var(--cream);
+    border: 3px solid var(--ink);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+  .step:nth-child(1) .step-num { background: var(--coral); color: white; border-color: var(--coral); }
+  .step:nth-child(2) .step-num { background: var(--sunshine); border-color: var(--sunshine); }
+  .step:nth-child(3) .step-num { background: var(--mint); color: white; border-color: var(--mint); }
+  .step:nth-child(4) .step-num { background: var(--lavender); color: white; border-color: var(--lavender); }
+  
+  .step h4 {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+  }
+  .step p { color: var(--ink-soft); font-size: 0.95rem; }
+  
+  /* ===== WHO'S BEHIND ===== */
+  .credibility {
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 32px;
+    margin: 0 2rem;
+    padding: 5rem 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .credibility::before {
+    content: '';
+    position: absolute;
+    width: 400px; height: 400px;
+    background: var(--coral);
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.3;
+    top: -100px; right: -100px;
+  }
+  .credibility::after {
+    content: '';
+    position: absolute;
+    width: 300px; height: 300px;
+    background: var(--lavender);
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.3;
+    bottom: -50px; left: -50px;
+  }
+  .credibility-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .credibility h2 { color: var(--cream); margin-bottom: 1.5rem; }
+  .credibility h2 .accent {
+    background: linear-gradient(120deg, var(--sunshine), var(--peach));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .credibility p {
+    font-size: 1.15rem;
+    color: rgba(255, 248, 240, 0.85);
+    margin-bottom: 2.5rem;
+  }
+  
+  .frameworks {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .framework-pill {
+    background: rgba(255, 248, 240, 0.1);
+    border: 1px solid rgba(255, 248, 240, 0.2);
+    color: var(--cream);
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    font-size: 0.88rem;
+    font-weight: 500;
+  }
+  
+  /* ===== FAQ ===== */
+  .faq {
+    background: linear-gradient(180deg, var(--cream) 0%, #FFEEDD 100%);
+  }
+  
+  .faq-list {
+    max-width: 800px;
+    margin: 2rem auto 0;
+  }
+  
+  .faq-item {
+    background: var(--white);
+    border-radius: 16px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    transition: box-shadow 0.2s ease;
+  }
+  .faq-item:hover { box-shadow: 0 8px 24px rgba(45, 27, 61, 0.08); }
+  
+  .faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 1.5rem;
+    text-align: left;
+    font-family: inherit;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--ink);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+  .faq-question .icon {
+    width: 32px; height: 32px;
+    background: var(--cream);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    transition: transform 0.3s ease, background 0.3s ease;
+    flex-shrink: 0;
+  }
+  .faq-item.open .faq-question .icon {
+    transform: rotate(45deg);
+    background: var(--coral);
+    color: white;
+  }
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  .faq-answer-inner {
+    padding: 0 1.5rem 1.5rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+  .faq-item.open .faq-answer { max-height: 300px; }
+  
+  /* ===== SIGNUP FORM ===== */
+  .signup {
+    background: linear-gradient(135deg, var(--coral) 0%, var(--peach) 50%, var(--sunshine) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .signup::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(255,255,255,0.15) 0%, transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(255,255,255,0.15) 0%, transparent 40%);
+  }
+  
+  .signup-inner {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+  .signup h2 { color: var(--ink); }
+  .signup .section-sub { color: rgba(45, 27, 61, 0.8); margin: 1rem auto 3rem; }
+  
+  .form-card {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 2.5rem;
+    box-shadow: 0 30px 80px rgba(45, 27, 61, 0.2);
+    text-align: left;
+  }
+  
+  .form-group {
+    margin-bottom: 1.25rem;
+  }
+  .form-group label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: var(--ink);
+  }
+  .form-group .helper {
+    font-weight: 400;
+    color: var(--ink-soft);
+    font-size: 0.85rem;
+  }
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: 2px solid rgba(45, 27, 61, 0.1);
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 1rem;
+    background: var(--cream);
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--coral);
+    background: var(--white);
+  }
+  .form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  
+  .form-submit {
+    width: 100%;
+    background: var(--ink);
+    color: var(--cream);
+    padding: 1.1rem;
+    border: none;
+    border-radius: 14px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 1.05rem;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: transform 0.2s ease, background 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  .form-submit:hover {
+    transform: translateY(-2px);
+    background: var(--coral);
+  }
+  
+  .form-footnote {
+    text-align: center;
+    color: var(--ink-soft);
+    font-size: 0.85rem;
+    margin-top: 1rem;
+  }
+  
+  .success-message {
+    text-align: center;
+    padding: 2rem;
+    display: none;
+  }
+  .success-message.show { display: block; }
+  .success-icon {
+    width: 80px; height: 80px;
+    background: var(--mint);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    color: white;
+    font-size: 2rem;
+    animation: bounceIn 0.6s ease;
+  }
+  @keyframes bounceIn {
+    0% { transform: scale(0); }
+    60% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+  }
+  .success-message h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .success-message p { color: var(--ink-soft); }
+  
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--ink);
+    color: rgba(255, 248, 240, 0.7);
+    padding: 3rem 2rem 2rem;
+    text-align: center;
+  }
+  footer .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  footer .logo { color: var(--cream); justify-content: center; margin-bottom: 1rem; }
+  footer p { margin-bottom: 1rem; font-size: 0.95rem; }
+  footer .footer-links {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+  }
+  footer .footer-links a {
+    color: rgba(255, 248, 240, 0.6);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+  }
+  footer .footer-links a:hover { color: var(--sunshine); }
+  
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .hero-visual { max-width: 400px; margin: 0 auto; }
+    section { padding: 4rem 1.5rem; }
+    .credibility { margin: 0 1rem; padding: 3.5rem 2rem; }
+    nav { padding: 1rem 1.5rem; }
+    .form-card { padding: 1.75rem; }
+  }
+  
+  @media (max-width: 500px) {
+    .hero { padding-top: 7rem; }
+    .nav-cta { padding: 0.5rem 1rem; font-size: 0.85rem; }
+    .hero-ctas { flex-direction: column; align-items: stretch; }
+    .btn-primary { justify-content: center; }
+    .price-note { justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo">
+      <span class="logo-emoji">🔥</span>
+      <span>On Site Roast</span>
+    </div>
+    <a href="#signup" class="nav-cta">Roast my site</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">
+        <span class="dot"></span>
+        <span>Roasted with love by a senior UX pro</span>
+      </div>
+      <h1>
+        Get your website <span class="accent">roasted</span> for the price of a <span class="underline">coffee</span> ☕
+      </h1>
+      <p class="hero-sub">
+        A senior UX/UI professional gives your site a friendly (but honest) heuristic audit, homepage review, UX writing check, and a prioritized list of what to fix first. Delivered in days, not weeks.
+      </p>
+      <div class="hero-ctas">
+        <a href="#signup" class="btn-primary">
+          Roast my site
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <div class="price-note">
+          <span class="coffee">☕</span>
+          <span>Just $10 — less than your morning latte</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="roast-card">
+        <div class="roast-card-header">
+          <div class="roast-avatar">UX</div>
+          <div class="roast-meta">
+            <div class="name">Your Roast Report</div>
+            <div class="role">Heuristic audit · 27 findings</div>
+          </div>
+          <div class="roast-stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+        </div>
+        <div class="roast-finding">
+          <div class="roast-finding-icon icon-red"><i class="fa-solid fa-triangle-exclamation"></i></div>
+          <div class="roast-finding-text">
+            <strong>Hero CTA is buried</strong>
+            <span>Primary action sits below the fold on mobile</span>
+          </div>
+        </div>
+        <div class="roast-finding">
+          <div class="roast-finding-icon icon-yellow"><i class="fa-solid fa-pen"></i></div>
+          <div class="roast-finding-text">
+            <strong>Headline is feature-led</strong>
+            <span>Lead with the outcome, not the mechanism</span>
+          </div>
+        </div>
+        <div class="roast-finding">
+          <div class="roast-finding-icon icon-green"><i class="fa-solid fa-check"></i></div>
+          <div class="roast-finding-text">
+            <strong>Solid visual hierarchy</strong>
+            <span>Eye flow guides users naturally to the form</span>
+          </div>
+        </div>
+      </div>
+      <div class="sticker sticker-1">Real<br>findings!</div>
+      <div class="sticker sticker-2">Friendly<br>tone 💛</div>
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERABLES -->
+<section class="deliverables">
+  <div class="container">
+    <span class="section-tag">✨ What you get</span>
+    <h2>A full-fat UX audit. Without the consulting fees.</h2>
+    <p class="section-sub">Every roast is hand-crafted by a senior UX/UI pro — no AI shortcuts, no copy-pasted templates. Here's what lands in your inbox:</p>
+    
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-icon icon-bg-1"><i class="fa-solid fa-magnifying-glass"></i></div>
+        <h3>Heuristic Analysis</h3>
+        <p>Your site evaluated against Nielsen's 10 usability heuristics — the gold standard for spotting friction, fast.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-bg-2"><i class="fa-solid fa-layer-group"></i></div>
+        <h3>Homepage & Structure Review</h3>
+        <p>Information architecture, hierarchy, and layout reviewed using the C.L.E.A.R. framework from Growth.design.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-bg-3"><i class="fa-solid fa-pen-fancy"></i></div>
+        <h3>UX Writing Audit</h3>
+        <p>Microcopy, CTAs, error states, and headlines reviewed for clarity, voice, and conversion impact.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-bg-4"><i class="fa-solid fa-palette"></i></div>
+        <h3>UI Design Review</h3>
+        <p>Visual design, typography, color, spacing, and accessibility checked against modern interface best practices.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-bg-5"><i class="fa-solid fa-list-check"></i></div>
+        <h3>Prioritized Action List</h3>
+        <p>Every finding ranked by impact and effort, so you know exactly what to fix first (and what to leave alone).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SAMPLE ROAST -->
+<section class="sample-roast">
+  <div class="container">
+    <span class="section-tag">👀 See it in action</span>
+    <h2>A peek inside a real roast.</h2>
+    <p class="section-sub">Here's a snippet from a sample audit — the kind of finding you'll get, written the way you'll get it. Friendly, specific, actionable.</p>
+    
+    <div class="sample-container">
+      <div class="sample-header">
+        <div class="sample-site">
+          <div class="sample-site-icon"><i class="fa-solid fa-globe"></i></div>
+          <div>
+            <h4>example-saas.com</h4>
+            <p>Audited last Tuesday · 27 findings</p>
+          </div>
+        </div>
+        <div class="sample-score">
+          <div class="score-number">6.4</div>
+          <div class="score-label">/ 10 overall<br>Room to grow ✨</div>
+        </div>
+      </div>
+      
+      <div class="findings-grid">
+        <div class="finding severity-high">
+          <span class="finding-tag tag-high">🔴 High impact</span>
+          <h5>Visibility of system status is weak</h5>
+          <p>Form submissions don't confirm success or failure clearly. Users click "Sign up" and are left wondering if anything happened — a common cause of duplicate submissions and drop-off.</p>
+          <span class="principle">Nielsen Heuristic #1 · Visibility of system status</span>
+        </div>
+        
+        <div class="finding severity-high">
+          <span class="finding-tag tag-high">🔴 High impact</span>
+          <h5>Headline tells, doesn't show</h5>
+          <p>"All-in-one platform for teams" is feature-led and vague. Visitors don't know what problem you solve in the first 3 seconds. Try leading with the outcome users care about.</p>
+          <span class="principle">C.L.E.A.R. Framework · Concise + Relevant</span>
+        </div>
+        
+        <div class="finding severity-med">
+          <span class="finding-tag tag-med">🟡 Medium impact</span>
+          <h5>CTA labels are generic</h5>
+          <p>"Get started," "Learn more," and "Submit" appear 14 times across the page. Specific verbs ("Start my free trial," "See pricing") set expectations and lift click-through.</p>
+          <span class="principle">UX writing · Action-led microcopy</span>
+        </div>
+        
+        <div class="finding severity-med">
+          <span class="finding-tag tag-med">🟡 Medium impact</span>
+          <h5>Color contrast fails WCAG AA</h5>
+          <p>Light gray body text on white (#A8A8A8 on #FFF) falls below the 4.5:1 contrast ratio needed for accessibility. Users with low vision and outdoor mobile users will struggle.</p>
+          <span class="principle">WCAG 2.1 · Accessibility</span>
+        </div>
+        
+        <div class="finding severity-low">
+          <span class="finding-tag tag-low">🟢 Low effort win</span>
+          <h5>Form has 8 fields. Could be 3.</h5>
+          <p>Phone number, company size, and job title are all marked required but aren't used until later. Each extra field drops conversion ~5%. Move them to onboarding.</p>
+          <span class="principle">Form design · Progressive disclosure</span>
+        </div>
+        
+        <div class="finding severity-low">
+          <span class="finding-tag tag-low">🟢 Low effort win</span>
+          <h5>Strong social proof, hidden away</h5>
+          <p>Testimonials and customer logos sit at the bottom of the page. Move at least one trust signal above the fold to reduce friction on first impression.</p>
+          <span class="principle">C.L.E.A.R. Framework · Reassurance</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-it-works">
+  <div class="container">
+    <span class="section-tag">🛠️ How it works</span>
+    <h2>From "ouch, my site" to "ahh, that's better" in 4 steps.</h2>
+    
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h4>Drop your URL</h4>
+        <p>Submit your site and tell us what you're worried about. Takes 60 seconds.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h4>Pay $10</h4>
+        <p>Less than a fancy latte. Secure checkout, no subscription, no upsells.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h4>We get to work</h4>
+        <p>A senior UX pro digs in. Real eyes, real expertise, real care for your business.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h4>Roast delivered</h4>
+        <p>Get your full report in your inbox within 3 business days. Ready to act on.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDIBILITY -->
+<section style="padding: 4rem 0;">
+  <div class="credibility">
+    <div class="credibility-inner">
+      <span class="section-tag" style="background: rgba(255,248,240,0.1); color: var(--cream); border-color: rgba(255,248,240,0.2);">🎓 Who's roasting</span>
+      <h2>Not a bot. Not an intern. <span class="accent">A senior UX pro.</span></h2>
+      <p>Every audit is done by hand by someone with 10+ years designing and shipping interfaces for startups and global brands. We bring industry frameworks, not just opinions.</p>
+      <div class="frameworks">
+        <span class="framework-pill">Nielsen's 10 Heuristics</span>
+        <span class="framework-pill">C.L.E.A.R. Framework</span>
+        <span class="framework-pill">WCAG 2.1 Accessibility</span>
+        <span class="framework-pill">Jobs-To-Be-Done</span>
+        <span class="framework-pill">Conversion-Centered Design</span>
+        <span class="framework-pill">UX Writing Best Practices</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="container">
+    <span class="section-tag">🤔 Questions?</span>
+    <h2>The fine print, made friendly.</h2>
+    
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>How fast will I get my roast?</span>
+          <span class="icon"><i class="fa-solid fa-plus"></i></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Within 3 business days of payment. Sometimes faster — we'll never make you wait longer than that without checking in.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>What format does the report come in?</span>
+          <span class="icon"><i class="fa-solid fa-plus"></i></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">A clean PDF with annotated screenshots, organized by section: heuristic findings, homepage review, UX writing notes, UI observations, and your prioritized action list. Easy to share with your team.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>What kinds of sites do you roast?</span>
+          <span class="icon"><i class="fa-solid fa-plus"></i></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Most of them! Landing pages, SaaS marketing sites, e-commerce stores, portfolios, blogs. If it's a website with a goal, we can help. We don't (yet) audit web apps with logins or complex flows behind paywalls.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>Why only $10? What's the catch?</span>
+          <span class="icon"><i class="fa-solid fa-plus"></i></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">No catch. We believe good UX advice shouldn't be locked behind $5,000 consulting fees. The roast is intentionally focused — homepage + key UX surfaces — so we can keep it affordable while still giving you real value. If you want a deeper engagement, we can talk.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>Will my roast be mean?</span>
+          <span class="icon"><i class="fa-solid fa-plus"></i></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Never. "Roast" is for the vibe — the actual report is constructive, specific, and kind. We tell you what's working too, and we frame fixes as opportunities, not failures.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>Can I ask follow-up questions after?</span>
+          <span class="icon"><i class="fa-solid fa-plus"></i></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Absolutely. One round of clarifying questions is included — just reply to the delivery email. For deeper conversations or implementation help, we offer optional follow-up calls.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNUP -->
+<section class="signup" id="signup">
+  <div class="signup-inner">
+    <span class="section-tag" style="background: rgba(255,255,255,0.4); border: none;">☕ Ready to get roasted?</span>
+    <h2>Let's see what your site is hiding.</h2>
+    <p class="section-sub">Drop your details below and we'll get to work. $10. Three days. Real insights.</p>
+    
+    <div class="form-card">
+      <form id="roastForm">
+        <div class="form-group">
+          <label for="name">Your name</label>
+          <input type="text" id="name" name="name" required placeholder="Jane Designer">
+        </div>
+        <div class="form-group">
+          <label for="email">Email <span class="helper">— where we'll send your report</span></label>
+          <input type="email" id="email" name="email" required placeholder="jane@yourcompany.com">
+        </div>
+        <div class="form-group">
+          <label for="url">Website URL</label>
+          <input type="url" id="url" name="url" required placeholder="https://yourwebsite.com">
+        </div>
+        <div class="form-group">
+          <label for="worry">What are you most worried about? <span class="helper">— optional, but helpful</span></label>
+          <textarea id="worry" name="worry" placeholder="e.g. My signup form converts poorly, or my homepage feels confusing, or I just have a hunch something's off..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">
+          Roast my site for $10
+          <i class="fa-solid fa-fire"></i>
+        </button>
+        <p class="form-footnote">Secure checkout on the next page. No subscription. No spam. Pinky promise.</p>
+      </form>
+      
+      <div class="success-message" id="successMessage">
+        <div class="success-icon"><i class="fa-solid fa-check"></i></div>
+        <h3>You're in! 🎉</h3>
+        <p>Check your inbox for next steps. Your roast will be served warm within 3 business days.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="logo">
+      <span class="logo-emoji">🔥</span>
+      <span>On Site Roast</span>
+    </div>
+    <p>Honest UX feedback for the price of a coffee.</p>
+    <div class="footer-links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Contact</a>
+      <a href="#">Twitter</a>
+      <a href="#">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+  
+  // Form submit (demo)
+  document.getElementById('roastForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    document.getElementById('roastForm').style.display = 'none';
+    document.getElementById('successMessage').classList.add('show');
+  });
+</script>
+
+</body>
+</html>
