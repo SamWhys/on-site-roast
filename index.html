@@ -839,6 +839,189 @@
   }
   footer .footer-links a:hover { color: var(--sunshine); }
   
+  /* ===== STICKY CTA ===== */
+  .sticky-cta {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 101;
+    background: var(--ink);
+    color: var(--cream);
+    padding: 0.75rem 2rem;
+    box-shadow: 0 8px 24px rgba(45,27,61,0.15);
+    transform: translateY(-110%);
+    transition: transform 0.35s ease;
+  }
+  .sticky-cta.visible { transform: translateY(0); }
+  .sticky-cta-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: space-between;
+  }
+  .sticky-cta-tag {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--cream);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+  }
+  .sticky-cta-form {
+    display: flex;
+    gap: 0.4rem;
+    flex: 1;
+    max-width: 480px;
+  }
+  .sticky-cta-input {
+    flex: 1;
+    border: 2px solid rgba(255,248,240,0.2);
+    background: rgba(255,248,240,0.08);
+    color: var(--cream);
+    border-radius: 999px;
+    padding: 0.55rem 1rem;
+    font-family: inherit;
+    font-size: 0.9rem;
+    outline: none;
+    min-width: 0;
+  }
+  .sticky-cta-input::placeholder { color: rgba(255,248,240,0.5); }
+  .sticky-cta-input:focus { border-color: var(--coral); background: rgba(255,248,240,0.15); }
+  .sticky-cta-btn {
+    background: var(--coral);
+    color: white;
+    border: none;
+    padding: 0.55rem 1.2rem;
+    border-radius: 999px;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s ease;
+  }
+  .sticky-cta-btn:hover { background: #ff5252; }
+  @media (max-width: 700px) {
+    .sticky-cta-tag { display: none; }
+    .sticky-cta { padding: 0.6rem 1rem; }
+  }
+
+  /* ===== HERO TAGLINE (sub-hook) ===== */
+  .hero-tagline {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+    color: var(--ink);
+    margin-bottom: 1.25rem;
+    max-width: 540px;
+    line-height: 1.35;
+    animation: slideUp 0.9s ease;
+  }
+  .hero-tagline em {
+    font-style: normal;
+    background: linear-gradient(120deg, var(--coral), var(--peach));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 900;
+  }
+
+  /* ===== DEMO URL CHIPS ===== */
+  .demo-urls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    margin-bottom: 1.25rem;
+    animation: slideUp 1.3s ease;
+  }
+  .demo-urls .demo-label { margin-right: 0.15rem; }
+  .demo-url-chip {
+    background: var(--white);
+    border: 1px solid rgba(45,27,61,0.1);
+    color: var(--ink);
+    padding: 0.25rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+  }
+  .demo-url-chip:hover {
+    background: var(--sunshine);
+    border-color: var(--sunshine);
+    transform: translateY(-1px);
+  }
+
+  /* ===== REVIEWER BIO ===== */
+  .reviewer-meta .reviewer-bio {
+    font-size: 0.85rem;
+    color: rgba(255, 248, 240, 0.6);
+    margin-bottom: 0.5rem;
+    max-width: 320px;
+    line-height: 1.4;
+  }
+
+  /* ===== SAMPLE PDF FRAME ===== */
+  .sample-pdf-strip {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--ink);
+    color: var(--cream);
+    padding: 0.7rem 1.25rem;
+    border-radius: 14px 14px 0 0;
+    margin: -2.5rem -2.5rem 2rem -2.5rem;
+    font-size: 0.85rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .sample-pdf-filename {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: var(--cream);
+  }
+  .sample-pdf-filename .ext {
+    background: var(--coral);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    letter-spacing: 0.04em;
+  }
+  .sample-pdf-actions {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+  }
+  .sample-pdf-pages {
+    color: rgba(255,248,240,0.65);
+    font-size: 0.8rem;
+  }
+  .sample-download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: var(--sunshine);
+    color: var(--ink);
+    text-decoration: none;
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+  .sample-download-btn:hover { transform: translateY(-2px); background: #FFE466; }
+
   /* ===== HERO URL FORM ===== */
   .hero-url-form {
     display: flex;
@@ -1036,6 +1219,20 @@
 </head>
 <body>
 
+<!-- STICKY CTA (appears on scroll past hero) -->
+<div class="sticky-cta" id="stickyCta">
+  <div class="sticky-cta-inner">
+    <div class="sticky-cta-tag">
+      <span>🔥</span>
+      <span>Get roasted — $10</span>
+    </div>
+    <form class="sticky-cta-form" id="stickyCtaForm">
+      <input type="url" class="sticky-cta-input" id="stickyCtaUrl" placeholder="https://yourwebsite.com" required>
+      <button type="submit" class="sticky-cta-btn">Roast it 🔥</button>
+    </form>
+  </div>
+</div>
+
 <nav>
   <div class="nav-inner">
     <div class="logo">
@@ -1062,6 +1259,9 @@
       <h1>
         Get your website <span class="accent">roasted</span> by a human, <span class="underline">not a bot</span> 👋
       </h1>
+      <p class="hero-tagline">
+        AI tells you <em>what</em>'s wrong. We tell you <em>why</em> — and what to do.
+      </p>
       <p class="hero-sub">
         Every other "roast my site" tool spits out an instant AI score. We don't. A senior UX/UI professional sits down with your site by hand — heuristic audit, homepage review, UX writing check, and a prioritized fix list. For the price of a coffee.
       </p>
@@ -1072,6 +1272,12 @@
           <i class="fa-solid fa-fire"></i>
         </button>
       </form>
+      <div class="demo-urls">
+        <span class="demo-label">Need inspiration? Try</span>
+        <button type="button" class="demo-url-chip" data-url="https://apple.com">apple.com</button>
+        <button type="button" class="demo-url-chip" data-url="https://stripe.com">stripe.com</button>
+        <button type="button" class="demo-url-chip" data-url="https://craigslist.org">craigslist.org</button>
+      </div>
       <div class="price-note">
         <span class="coffee">☕</span>
         <span>Just $10 — less than your morning latte. 3-day turnaround.</span>
@@ -1083,7 +1289,7 @@
           <div class="roast-avatar">UX</div>
           <div class="roast-meta">
             <div class="name">Your Roast Report</div>
-            <div class="role">Heuristic audit · 27 findings</div>
+            <div class="role">by Sam · 27 findings</div>
           </div>
           <div class="roast-stars">
             <i class="fa-solid fa-star"></i>
@@ -1206,6 +1412,19 @@
     <p class="section-sub">Here's a snippet from a sample audit — the kind of finding you'll get, written the way you'll get it. Friendly, specific, actionable.</p>
     
     <div class="sample-container">
+      <div class="sample-pdf-strip">
+        <div class="sample-pdf-filename">
+          <i class="fa-solid fa-file-pdf"></i>
+          <span class="ext">PDF</span>
+          <span>example-saas_roast-report.pdf</span>
+        </div>
+        <div class="sample-pdf-actions">
+          <span class="sample-pdf-pages">12 pages · Preview below</span>
+          <a href="/sample-roast.pdf" class="sample-download-btn" download>
+            <i class="fa-solid fa-download"></i> Download full sample
+          </a>
+        </div>
+      </div>
       <div class="sample-header">
         <div class="sample-site">
           <div class="sample-site-icon"><i class="fa-solid fa-globe"></i></div>
@@ -1309,6 +1528,7 @@
         <div class="reviewer-meta">
           <span class="reviewer-name">Sam Perniskie</span>
           <div class="reviewer-title">Senior UX/UI Designer · 10+ years</div>
+          <p class="reviewer-bio">Reviewed 100+ sites across SaaS, e-commerce, and consumer apps. I built this so good UX advice isn't only for companies with $5K to burn.</p>
           <a href="#" class="reviewer-link" target="_blank" rel="noopener">
             <i class="fa-brands fa-linkedin"></i> View on LinkedIn
           </a>
@@ -1471,14 +1691,44 @@
     });
   });
   
-  // Hero URL field — prefill the main form and scroll to it
-  document.getElementById('heroUrlForm').addEventListener('submit', (e) => {
-    e.preventDefault();
-    const heroUrl = document.getElementById('heroUrl').value.trim();
-    if (heroUrl) document.getElementById('url').value = heroUrl;
+  // Helper: jump from any URL entry point to the main form
+  function jumpToForm(url) {
+    if (url) document.getElementById('url').value = url;
     document.getElementById('signup').scrollIntoView({ behavior: 'smooth' });
     setTimeout(() => document.getElementById('name').focus(), 700);
+  }
+
+  // Hero URL field
+  document.getElementById('heroUrlForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    jumpToForm(document.getElementById('heroUrl').value.trim());
   });
+
+  // Sticky CTA URL field
+  document.getElementById('stickyCtaForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    jumpToForm(document.getElementById('stickyCtaUrl').value.trim());
+  });
+
+  // Demo URL chips — prefill hero input
+  document.querySelectorAll('.demo-url-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.getElementById('heroUrl').value = chip.dataset.url;
+      document.getElementById('heroUrl').focus();
+    });
+  });
+
+  // Show sticky CTA after scrolling past the hero
+  const stickyCta = document.getElementById('stickyCta');
+  const heroEl = document.querySelector('.hero');
+  window.addEventListener('scroll', () => {
+    const heroBottom = heroEl.offsetTop + heroEl.offsetHeight;
+    if (window.scrollY > heroBottom - 100) {
+      stickyCta.classList.add('visible');
+    } else {
+      stickyCta.classList.remove('visible');
+    }
+  }, { passive: true });
 
   // Form submit (demo)
   document.getElementById('roastForm').addEventListener('submit', (e) => {
