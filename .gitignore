@@ -4,3 +4,8 @@ node_modules/
 .dev.vars
 .wrangler/
 .vscode/
+
+# Admin-tool working context (lives in its own repo)
+Dashboard schema/
+Report/
+Workflow/
