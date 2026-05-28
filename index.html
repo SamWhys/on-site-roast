@@ -839,6 +839,179 @@
   }
   footer .footer-links a:hover { color: var(--sunshine); }
   
+  /* ===== HERO URL FORM ===== */
+  .hero-url-form {
+    display: flex;
+    gap: 0.5rem;
+    background: var(--white);
+    padding: 0.5rem;
+    border-radius: 999px;
+    box-shadow: 0 10px 30px rgba(45, 27, 61, 0.12);
+    max-width: 480px;
+    margin-bottom: 1rem;
+    animation: slideUp 1.2s ease;
+    border: 2px solid transparent;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .hero-url-form:focus-within {
+    border-color: var(--coral);
+    box-shadow: 0 12px 36px rgba(255, 107, 107, 0.18);
+  }
+  .hero-url-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 0.85rem 1.25rem;
+    font-family: inherit;
+    font-size: 1rem;
+    background: transparent;
+    color: var(--ink);
+    min-width: 0;
+  }
+  .hero-url-input::placeholder { color: rgba(45, 27, 61, 0.4); }
+  .hero-url-btn {
+    background: var(--ink);
+    color: var(--cream);
+    border: none;
+    padding: 0.85rem 1.5rem;
+    border-radius: 999px;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background 0.2s ease, transform 0.2s ease;
+    white-space: nowrap;
+  }
+  .hero-url-btn:hover { background: var(--coral); transform: translateY(-2px); }
+  .hero-url-btn i { transition: transform 0.2s ease; }
+  .hero-url-btn:hover i { transform: rotate(15deg) scale(1.1); }
+
+  /* ===== HUMAN VS AI ===== */
+  .versus { background: var(--white); }
+  .versus-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+  .versus-col {
+    border-radius: 20px;
+    padding: 2rem;
+    position: relative;
+  }
+  .versus-bot {
+    background: var(--cream);
+    border: 2px solid rgba(45, 27, 61, 0.08);
+  }
+  .versus-human {
+    background: linear-gradient(135deg, rgba(255,107,107,0.08), rgba(255,217,61,0.12));
+    border: 2px solid var(--coral);
+  }
+  .versus-badge {
+    position: absolute;
+    top: -12px;
+    right: 1.5rem;
+    background: var(--coral);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.3rem 0.85rem;
+    border-radius: 999px;
+  }
+  .versus-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px dashed rgba(45, 27, 61, 0.1);
+  }
+  .versus-emoji { font-size: 1.75rem; }
+  .versus-header h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+  }
+  .versus-list { list-style: none; }
+  .versus-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    margin-bottom: 0.9rem;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    line-height: 1.45;
+  }
+  .versus-list li:last-child { margin-bottom: 0; }
+  .versus-bot .versus-list i { color: #C97070; margin-top: 0.2rem; }
+  .versus-human .versus-list i { color: var(--mint); margin-top: 0.2rem; }
+  .versus-human .versus-list li { color: var(--ink); font-weight: 500; }
+  .versus-footnote {
+    text-align: center;
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    margin-top: 2.5rem;
+    color: var(--ink);
+  }
+
+  /* ===== REVIEWER CARD ===== */
+  .reviewer-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+  .reviewer-avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--coral), var(--peach), var(--sunshine));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 2.25rem;
+    color: var(--ink);
+    border: 4px solid rgba(255, 248, 240, 0.15);
+    flex-shrink: 0;
+    background-size: cover;
+    background-position: center;
+  }
+  .reviewer-meta { text-align: left; }
+  .reviewer-meta .reviewer-name {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--cream);
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+  .reviewer-meta .reviewer-title {
+    font-size: 0.95rem;
+    color: rgba(255, 248, 240, 0.75);
+    margin-bottom: 0.4rem;
+  }
+  .reviewer-meta .reviewer-link {
+    font-size: 0.9rem;
+    color: var(--sunshine);
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: opacity 0.2s ease;
+  }
+  .reviewer-meta .reviewer-link:hover { opacity: 0.8; }
+
   /* ===== RESPONSIVE ===== */
   @media (max-width: 900px) {
     .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
@@ -847,14 +1020,17 @@
     .credibility { margin: 0 1rem; padding: 3.5rem 2rem; }
     nav { padding: 1rem 1.5rem; }
     .form-card { padding: 1.75rem; }
+    .versus-grid { grid-template-columns: 1fr; }
   }
-  
+
   @media (max-width: 500px) {
     .hero { padding-top: 7rem; }
     .nav-cta { padding: 0.5rem 1rem; font-size: 0.85rem; }
-    .hero-ctas { flex-direction: column; align-items: stretch; }
-    .btn-primary { justify-content: center; }
     .price-note { justify-content: center; }
+    .hero-url-form { flex-direction: column; border-radius: 16px; padding: 0.75rem; }
+    .hero-url-btn { width: 100%; justify-content: center; }
+    .reviewer-card { flex-direction: column; gap: 1rem; }
+    .reviewer-meta { text-align: center; }
   }
 </style>
 </head>
@@ -881,23 +1057,24 @@
     <div>
       <div class="hero-badge">
         <span class="dot"></span>
-        <span>Roasted with love by a senior UX pro</span>
+        <span>A real human expert — not an AI bot</span>
       </div>
       <h1>
-        Get your website <span class="accent">roasted</span> for the price of a <span class="underline">coffee</span> ☕
+        Get your website <span class="accent">roasted</span> by a human, <span class="underline">not a bot</span> 👋
       </h1>
       <p class="hero-sub">
-        A senior UX/UI professional gives your site a friendly (but honest) heuristic audit, homepage review, UX writing check, and a prioritized list of what to fix first. Delivered in days, not weeks.
+        Every other "roast my site" tool spits out an instant AI score. We don't. A senior UX/UI professional sits down with your site by hand — heuristic audit, homepage review, UX writing check, and a prioritized fix list. For the price of a coffee.
       </p>
-      <div class="hero-ctas">
-        <a href="#signup" class="btn-primary">
-          Roast my site
-          <i class="fa-solid fa-arrow-right"></i>
-        </a>
-        <div class="price-note">
-          <span class="coffee">☕</span>
-          <span>Just $10 — less than your morning latte</span>
-        </div>
+      <form class="hero-url-form" id="heroUrlForm">
+        <input type="url" class="hero-url-input" id="heroUrl" placeholder="https://yourwebsite.com" required>
+        <button type="submit" class="hero-url-btn">
+          Roast it
+          <i class="fa-solid fa-fire"></i>
+        </button>
+      </form>
+      <div class="price-note">
+        <span class="coffee">☕</span>
+        <span>Just $10 — less than your morning latte. 3-day turnaround.</span>
       </div>
     </div>
     <div class="hero-visual">
@@ -946,8 +1123,8 @@
 <section class="deliverables">
   <div class="container">
     <span class="section-tag">✨ What you get</span>
-    <h2>A full-fat UX audit. Without the consulting fees.</h2>
-    <p class="section-sub">Every roast is hand-crafted by a senior UX/UI pro — no AI shortcuts, no copy-pasted templates. Here's what lands in your inbox:</p>
+    <h2>A real UX audit. Done by a real person.</h2>
+    <p class="section-sub">Instant AI tools give you a number and a generic list. We give you considered, human judgment that understands your business — no AI shortcuts, no copy-pasted templates. Here's what lands in your inbox:</p>
     
     <div class="cards-grid">
       <div class="card">
@@ -976,6 +1153,48 @@
         <p>Every finding ranked by impact and effort, so you know exactly what to fix first (and what to leave alone).</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- HUMAN VS AI -->
+<section class="versus">
+  <div class="container">
+    <span class="section-tag">🤖 vs 👋 The difference</span>
+    <h2>The internet is full of AI roasts. This isn't one.</h2>
+    <p class="section-sub">Instant AI tools are fun, free, and fine for a gut check. But when it actually matters, you want a human who's reviewed hundreds of real sites — not a model guessing from your HTML.</p>
+
+    <div class="versus-grid">
+      <div class="versus-col versus-bot">
+        <div class="versus-header">
+          <span class="versus-emoji">🤖</span>
+          <h3>Instant AI tools</h3>
+        </div>
+        <ul class="versus-list">
+          <li><i class="fa-solid fa-xmark"></i> A score in 2 minutes, gone by lunch</li>
+          <li><i class="fa-solid fa-xmark"></i> Generic feedback that fits any site</li>
+          <li><i class="fa-solid fa-xmark"></i> Guesses from your code, can't judge intent</li>
+          <li><i class="fa-solid fa-xmark"></i> No idea what your business actually does</li>
+          <li><i class="fa-solid fa-xmark"></i> Can't tell you what to fix first, or why</li>
+          <li><i class="fa-solid fa-xmark"></i> Nobody to ask follow-up questions</li>
+        </ul>
+      </div>
+      <div class="versus-col versus-human">
+        <div class="versus-badge">That's us</div>
+        <div class="versus-header">
+          <span class="versus-emoji">👋</span>
+          <h3>A senior UX human</h3>
+        </div>
+        <ul class="versus-list">
+          <li><i class="fa-solid fa-check"></i> Considered judgment from 10+ years of real work</li>
+          <li><i class="fa-solid fa-check"></i> Specific to your site, your goals, your audience</li>
+          <li><i class="fa-solid fa-check"></i> Understands the business behind the buttons</li>
+          <li><i class="fa-solid fa-check"></i> Prioritized by real impact vs. effort</li>
+          <li><i class="fa-solid fa-check"></i> Grounded in proven frameworks, applied with taste</li>
+          <li><i class="fa-solid fa-check"></i> A real person you can reply to</li>
+        </ul>
+      </div>
+    </div>
+    <p class="versus-footnote">Good judgment takes more than two minutes. That's the point.</p>
   </div>
 </section>
 
@@ -1084,8 +1303,18 @@
   <div class="credibility">
     <div class="credibility-inner">
       <span class="section-tag" style="background: rgba(255,248,240,0.1); color: var(--cream); border-color: rgba(255,248,240,0.2);">🎓 Who's roasting</span>
-      <h2>Not a bot. Not an intern. <span class="accent">A senior UX pro.</span></h2>
-      <p>Every audit is done by hand by someone with 10+ years designing and shipping interfaces for startups and global brands. We bring industry frameworks, not just opinions.</p>
+      <h2>Meet the human <span class="accent">behind the roast.</span></h2>
+      <div class="reviewer-card">
+        <div class="reviewer-avatar" id="reviewerAvatar">SP</div>
+        <div class="reviewer-meta">
+          <span class="reviewer-name">Sam Perniskie</span>
+          <div class="reviewer-title">Senior UX/UI Designer · 10+ years</div>
+          <a href="#" class="reviewer-link" target="_blank" rel="noopener">
+            <i class="fa-brands fa-linkedin"></i> View on LinkedIn
+          </a>
+        </div>
+      </div>
+      <p>Every audit is done by hand — no AI, no interns, no templates. 10+ years designing and shipping interfaces for startups and global brands, grounded in the frameworks the rest of the industry just talks about.</p>
       <div class="frameworks">
         <span class="framework-pill">Nielsen's 10 Heuristics</span>
         <span class="framework-pill">C.L.E.A.R. Framework</span>
@@ -1134,11 +1363,20 @@
       </div>
       <div class="faq-item">
         <button class="faq-question">
+          <span>Wait, aren't there free AI tools that do this?</span>
+          <span class="icon"><i class="fa-solid fa-plus"></i></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">There are, and they're genuinely fun for a quick gut check! But they give you a generic score in two minutes by guessing from your code. They don't understand your business, can't prioritize what to fix first for <em>your</em> goals, and there's nobody to ask follow-up questions. This is a real senior UX professional, reviewing your site by hand. Different thing entirely.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
           <span>Why only $10? What's the catch?</span>
           <span class="icon"><i class="fa-solid fa-plus"></i></span>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">No catch. We believe good UX advice shouldn't be locked behind $5,000 consulting fees. The roast is intentionally focused — homepage + key UX surfaces — so we can keep it affordable while still giving you real value. If you want a deeper engagement, we can talk.</div>
+          <div class="faq-answer-inner">No catch. We believe good UX advice shouldn't be locked behind $5,000 consulting fees. The roast is intentionally focused — homepage + key UX surfaces — so we can keep it affordable while still giving you real, human value. If you want a deeper engagement, we can talk.</div>
         </div>
       </div>
       <div class="faq-item">
@@ -1233,6 +1471,15 @@
     });
   });
   
+  // Hero URL field — prefill the main form and scroll to it
+  document.getElementById('heroUrlForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const heroUrl = document.getElementById('heroUrl').value.trim();
+    if (heroUrl) document.getElementById('url').value = heroUrl;
+    document.getElementById('signup').scrollIntoView({ behavior: 'smooth' });
+    setTimeout(() => document.getElementById('name').focus(), 700);
+  });
+
   // Form submit (demo)
   document.getElementById('roastForm').addEventListener('submit', (e) => {
     e.preventDefault();
