@@ -1215,6 +1215,158 @@
     .reviewer-card { flex-direction: column; gap: 1rem; }
     .reviewer-meta { text-align: center; }
   }
+
+  /* ===== REPORT PREVIEW MODAL ===== */
+  .report-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 3000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+  .report-modal.open { display: flex; }
+  .report-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(45, 27, 61, 0.45);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    animation: fadeIn 0.25s ease;
+  }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  .report-modal-card {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 560px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: var(--white);
+    border-radius: 24px;
+    box-shadow: 0 30px 80px rgba(45, 27, 61, 0.35);
+    animation: modalPop 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.3);
+  }
+  @keyframes modalPop {
+    from { opacity: 0; transform: translateY(16px) scale(0.96); }
+    to { opacity: 1; transform: none; }
+  }
+  .report-modal-close {
+    position: absolute;
+    top: 14px; right: 14px;
+    z-index: 3;
+    width: 36px; height: 36px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(45, 27, 61, 0.06);
+    color: var(--ink);
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+  }
+  .report-modal-close:hover { background: rgba(45, 27, 61, 0.14); }
+  .report-preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 2rem 2rem 1.5rem;
+    border-bottom: 2px dashed rgba(45, 27, 61, 0.1);
+  }
+  .report-score {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    background: linear-gradient(135deg, var(--coral), #FF8A8A);
+    padding: 0.85rem 1.25rem;
+    border-radius: 18px;
+    color: #fff;
+  }
+  .report-score-num {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 56px;
+  }
+  .report-score-num .blurred {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 2.4rem;
+    line-height: 1;
+    filter: blur(8px);
+    opacity: 0.65;
+    user-select: none;
+  }
+  .report-score-lock {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+    color: #fff;
+  }
+  .report-score-label { font-size: 0.78rem; line-height: 1.3; color: rgba(255, 255, 255, 0.95); }
+  .report-preview-body { position: relative; padding: 1.5rem 2rem 2rem; }
+  .report-teaser-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    filter: blur(3px);
+    opacity: 0.55;
+    pointer-events: none;
+  }
+  .teaser-row {
+    display: flex;
+    gap: 0.75rem;
+    background: var(--cream);
+    border-radius: 12px;
+    padding: 1rem;
+    border-left: 4px solid var(--coral);
+  }
+  .teaser-row:nth-child(2) { border-left-color: var(--sunshine); }
+  .teaser-row:nth-child(3) { border-left-color: var(--mint); }
+  .teaser-bars { flex: 1; display: flex; flex-direction: column; gap: 0.5rem; }
+  .teaser-bar { height: 11px; border-radius: 6px; background: rgba(45, 27, 61, 0.16); }
+  .teaser-bar.short { width: 55%; }
+  .teaser-bar.tiny { width: 35%; height: 9px; }
+  .report-teaser-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 0.55rem;
+    padding: 1.5rem;
+    background: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.92) 42%, #fff 100%);
+  }
+  .report-teaser-overlay h3 { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.5rem; }
+  .report-teaser-overlay p { color: var(--ink-soft); font-size: 0.92rem; max-width: 380px; }
+  .report-teaser-cta {
+    margin-top: 0.4rem;
+    background: var(--coral);
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    padding: 0.85rem 1.75rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .report-teaser-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(255, 107, 107, 0.4); }
 </style>
 </head>
 <body>
@@ -1344,14 +1496,9 @@
         <p>Information architecture, hierarchy, and layout reviewed against conversion-centered design principles.</p>
       </div>
       <div class="card">
-        <div class="card-icon icon-bg-3"><i class="fa-solid fa-pen-fancy"></i></div>
-        <h3>UX Writing Audit</h3>
-        <p>Microcopy, CTAs, error states, and headlines reviewed for clarity, voice, and conversion impact.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon icon-bg-4"><i class="fa-solid fa-palette"></i></div>
-        <h3>UI Design Review</h3>
-        <p>Visual design, typography, color, spacing, and accessibility checked against modern interface best practices.</p>
+        <div class="card-icon icon-bg-3"><i class="fa-solid fa-pen-ruler"></i></div>
+        <h3>UX Writing & UI Design</h3>
+        <p>Microcopy, CTAs, and headlines checked for clarity and conversion — alongside the visual design, typography, color, spacing, and accessibility behind them.</p>
       </div>
       <div class="card">
         <div class="card-icon icon-bg-5"><i class="fa-solid fa-list-check"></i></div>
@@ -1483,7 +1630,7 @@
 <section class="how-it-works">
   <div class="container">
     <span class="section-tag">🛠️ How it works</span>
-    <h2>From "ouch, my site" to "ahh, that's better" in 4 steps.</h2>
+    <h2>Getting roasted is easy. <span class="accent">Four steps, no surprises.</span></h2>
     
     <div class="steps">
       <div class="step">
@@ -1661,6 +1808,42 @@
   </div>
 </footer>
 
+<!-- REPORT PREVIEW MODAL -->
+<div class="report-modal" id="reportModal" aria-hidden="true">
+  <div class="report-modal-backdrop" data-close></div>
+  <div class="report-modal-card" role="dialog" aria-modal="true" aria-labelledby="reportModalTitle">
+    <button class="report-modal-close" type="button" data-close aria-label="Close preview"><i class="fa-solid fa-xmark"></i></button>
+    <div class="report-preview-header">
+      <div class="sample-site">
+        <div class="sample-site-icon"><i class="fa-solid fa-globe"></i></div>
+        <div>
+          <h4 id="reportModalTitle">your site</h4>
+          <p>Your roast — preview</p>
+        </div>
+      </div>
+      <div class="report-score">
+        <div class="report-score-num">
+          <span class="blurred">7.3</span>
+          <span class="report-score-lock"><i class="fa-solid fa-lock"></i></span>
+        </div>
+        <div class="report-score-label">/ 10 overall<br>Unlock your score</div>
+      </div>
+    </div>
+    <div class="report-preview-body">
+      <div class="report-teaser-rows" aria-hidden="true">
+        <div class="teaser-row"><div class="teaser-bars"><div class="teaser-bar"></div><div class="teaser-bar short"></div><div class="teaser-bar tiny"></div></div></div>
+        <div class="teaser-row"><div class="teaser-bars"><div class="teaser-bar"></div><div class="teaser-bar short"></div><div class="teaser-bar tiny"></div></div></div>
+        <div class="teaser-row"><div class="teaser-bars"><div class="teaser-bar"></div><div class="teaser-bar short"></div><div class="teaser-bar tiny"></div></div></div>
+      </div>
+      <div class="report-teaser-overlay">
+        <h3>Ready to get roasted? 🔥</h3>
+        <p>This is just the cover. Your full report breaks down every finding, ranked by impact — hand-written by a senior UX pro and delivered in 3 days for $10.</p>
+        <button class="report-teaser-cta" type="button" id="reportModalCta">Start my roast <i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
   // FAQ accordion
   document.querySelectorAll('.faq-question').forEach(btn => {
@@ -1679,16 +1862,53 @@
     setTimeout(() => document.getElementById('name').focus(), 700);
   }
 
+  // Report preview modal
+  const reportModal = document.getElementById('reportModal');
+  const reportModalTitle = document.getElementById('reportModalTitle');
+  let pendingUrl = '';
+
+  function domainFromUrl(raw) {
+    if (!raw) return 'your site';
+    try {
+      return new URL(raw).hostname.replace(/^www\./, '');
+    } catch (err) {
+      return raw.replace(/^https?:\/\//, '').replace(/^www\./, '').split('/')[0] || 'your site';
+    }
+  }
+
+  function openReportModal(url) {
+    pendingUrl = url || '';
+    reportModalTitle.textContent = domainFromUrl(url);
+    reportModal.classList.add('open');
+    reportModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeReportModal() {
+    reportModal.classList.remove('open');
+    reportModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  reportModal.querySelectorAll('[data-close]').forEach(el => el.addEventListener('click', closeReportModal));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && reportModal.classList.contains('open')) closeReportModal();
+  });
+  document.getElementById('reportModalCta').addEventListener('click', () => {
+    closeReportModal();
+    jumpToForm(pendingUrl);
+  });
+
   // Hero URL field
   document.getElementById('heroUrlForm').addEventListener('submit', (e) => {
     e.preventDefault();
-    jumpToForm(document.getElementById('heroUrl').value.trim());
+    openReportModal(document.getElementById('heroUrl').value.trim());
   });
 
   // Sticky CTA URL field
   document.getElementById('stickyCtaForm').addEventListener('submit', (e) => {
     e.preventDefault();
-    jumpToForm(document.getElementById('stickyCtaUrl').value.trim());
+    openReportModal(document.getElementById('stickyCtaUrl').value.trim());
   });
 
   // Demo URL chips — prefill hero input
